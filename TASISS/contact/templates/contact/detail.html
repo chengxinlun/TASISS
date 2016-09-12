@@ -1,0 +1,10 @@
+{% load i18n %}
+<center>
+<h1>{{member.name}}{% trans "'s information" %}</h1>
+<table>
+	<tr><td>{% trans "Name" %}</td><td>{{member.name}}</td></tr>
+	<tr><td>{% trans "Gender" %}</td><td>{{member.get_gender_display}}</td></tr>
+	<tr><td>{% trans "Working Department" %}</td><td>{{member.get_wd_display}}</td></tr>
+	<tr><td>{% trans "Working Position" %}</td><td>{{member.get_wp_display}}</td></tr>
+</table>
+</center>

@@ -1,0 +1,9 @@
+{% if all_member %}
+    <ul>
+    {% for member in all_member %}
+        <li><a href="{% url 'contact:detail' member.openid %}">{{ member.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No members are available.</p>
+{% endif %}
