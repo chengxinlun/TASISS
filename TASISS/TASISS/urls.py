@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+import wxmanager.views
 
 urlpatterns = i18n_patterns(
     url(r'^admin/', admin.site.urls),
     url(r'^contact/', include('contact.urls')),
-)
+    )
+urlpatterns.append(url(r'^wechat/', wxmanager.views.wechat, name='wechat'))
