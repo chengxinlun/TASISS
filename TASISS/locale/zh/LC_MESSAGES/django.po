@@ -1,0 +1,94 @@
+# TASISS Chinese translation
+# Copyright (C) 2016
+# This file is distributed under the same license as the TASISS package.
+# Xinlun Cheng <chengxinlun@gmail.com>.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-12 13:59+0800\n"
+"PO-Revision-Date: 2016-09-12 14:09+0800\n"
+"Last-Translator: Xinlun Cheng <chengxinlun@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contact/models.py:10
+msgid "genderFemale"
+msgstr "妹子"
+
+#: contact/models.py:11
+msgid "genderMale"
+msgstr "汉子"
+
+#: contact/models.py:16
+msgid "departmentCouncil"
+msgstr "理事会"
+
+#: contact/models.py:17
+msgid "departmentManagement"
+msgstr "协会管理层"
+
+#: contact/models.py:18
+msgid "departmentForeignaffair"
+msgstr "外联部"
+
+#: contact/models.py:19
+msgid "departmentInternalaffair"
+msgstr "内联部"
+
+#: contact/models.py:20
+msgid "departmentPropogenda"
+msgstr "宣传部"
+
+#: contact/models.py:21
+msgid "departmentAcademic"
+msgstr "学术部"
+
+#: contact/models.py:26
+msgid "positionMemberofcouncil"
+msgstr "理事"
+
+#: contact/models.py:27
+msgid "positionLeader"
+msgstr "会长"
+
+#: contact/models.py:28
+msgid "positionViceleader"
+msgstr "副会长"
+
+#: contact/models.py:29
+msgid "positionHeadofdepartment"
+msgstr "部长"
+
+#: contact/models.py:30
+msgid "positionVicehead"
+msgstr "副部长"
+
+#: contact/models.py:31
+msgid "positionMemberofdepartment"
+msgstr "部员"
+
+#: contact/templates/contact/detail.html:3
+msgid "'s information"
+msgstr "的个人信息"
+
+#: contact/templates/contact/detail.html:5
+msgid "Name"
+msgstr "姓名"
+
+#: contact/templates/contact/detail.html:6
+msgid "Gender"
+msgstr "性别"
+
+#: contact/templates/contact/detail.html:7
+msgid "Working Department"
+msgstr "所在部门"
+
+#: contact/templates/contact/detail.html:8
+msgid "Working Position"
+msgstr "现任职务"

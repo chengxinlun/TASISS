@@ -1,0 +1,94 @@
+# TASISS English translation
+# Copyright (C) 2016
+# This file is distributed under the same license as the TASISS package.
+# Xinlun Cheng <chengxinlun@gmail.com>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-12 13:59+0800\n"
+"PO-Revision-Date: 2016-09-12 14:04+0800\n"
+"Last-Translator: Xinlun Cheng <chengxinlun@gmail.com>\n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contact/models.py:10
+msgid "genderFemale"
+msgstr "Female"
+
+#: contact/models.py:11
+msgid "genderMale"
+msgstr "Male"
+
+#: contact/models.py:16
+msgid "departmentCouncil"
+msgstr "Council"
+
+#: contact/models.py:17
+msgid "departmentManagement"
+msgstr "Management Level"
+
+#: contact/models.py:18
+msgid "departmentForeignaffair"
+msgstr "Department of Foreign Affair"
+
+#: contact/models.py:19
+msgid "departmentInternalaffair"
+msgstr "Department of Internal Affair"
+
+#: contact/models.py:20
+msgid "departmentPropogenda"
+msgstr "Department of Propogenda"
+
+#: contact/models.py:21
+msgid "departmentAcademic"
+msgstr "Department of Academy"
+
+#: contact/models.py:26
+msgid "positionMemberofcouncil"
+msgstr "Member of Council"
+
+#: contact/models.py:27
+msgid "positionLeader"
+msgstr "Society Leader"
+
+#: contact/models.py:28
+msgid "positionViceleader"
+msgstr "Society Vice-leader"
+
+#: contact/models.py:29
+msgid "positionHeadofdepartment"
+msgstr "Head of Department"
+
+#: contact/models.py:30
+msgid "positionVicehead"
+msgstr "Vice-head of Department"
+
+#: contact/models.py:31
+msgid "positionMemberofdepartment"
+msgstr "Member of Department"
+
+#: contact/templates/contact/detail.html:3
+msgid "'s information"
+msgstr "'s information"
+
+#: contact/templates/contact/detail.html:5
+msgid "Name"
+msgstr "Name"
+
+#: contact/templates/contact/detail.html:6
+msgid "Gender"
+msgstr "Gender"
+
+#: contact/templates/contact/detail.html:7
+msgid "Working Department"
+msgstr "Current Department in Society"
+
+#: contact/templates/contact/detail.html:8
+msgid "Working Position"
+msgstr "Current Position in Society"
