@@ -32,6 +32,7 @@ class Member(models.Model):
         ('md', _('positionMemberofdepartment')),
         )
     wp = models.CharField(max_length=2, choices=wp_choice, default='md')
+    # Avatar
 
     def __str__(self):
         return self.name

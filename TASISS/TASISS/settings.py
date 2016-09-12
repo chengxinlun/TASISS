@@ -17,6 +17,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
 
 
+# Media files storage and access
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = ''
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
