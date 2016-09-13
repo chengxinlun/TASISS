@@ -3,7 +3,6 @@ Tsinghua Astronomy Society Internal Service System
 
 # Current project plan
 
-'''xml
 <myxml>
 <tree>
   <directory name="TASISS">
