@@ -1,0 +1,10 @@
+{% if opening_list %}
+    {% for each in opening_list %}
+		<table>
+			<tr><td><a href="{% url 'wxmanager:checkin' each.id %}">{{ each.name }}</a></td></tr>
+			<tr><td>{{ each.starttime }}</td><td>{{ each.endtime }}</td></tr>
+		</table>
+    {% endfor %}
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

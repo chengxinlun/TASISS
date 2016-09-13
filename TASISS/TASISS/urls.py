@@ -23,3 +23,4 @@ urlpatterns = i18n_patterns(
     url(r'^contact/', include('contact.urls')),
     )
 urlpatterns.append(url(r'^wechat/', wxmanager.views.wechat, name='wechat'))
+urlpatterns.append(url(r'^checkin/', include('wxmanager.urls')))
