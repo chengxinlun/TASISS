@@ -1,113 +1,41 @@
 # TASISS
 Tsinghua Astronomy Society Internal Service System
 
-# Current project plan
+# Purpose and Aim
+* WeChat official platform auto response
+* Observatory opening reservation through WeChat official plarform API ```(under dev)```
+* Observatory reservation checking-in ```(web portal completed, mobile plantform under dev)```
+* Database including basic information about every member in TAS ```(under dev)```
+* Localization for every non-admin webpage ```(under dev)```
+* Weekly-meeting checking-in ```(planned)```
 
-<myxml>
-<tree>
-  <directory name="TASISS">
-    <file name="README.md"></file>
-    <directory name="TASISS">
-      <directory name="contact">
-        <file name="admin.py"></file>
-        <file name="apps.py"></file>
-        <file name="__init__.py"></file>
-        <directory name="migrations">
-          <file name="0001_initial.py"></file>
-          <file name="0002_auto_20160912_0616.py"></file>
-          <file name="__init__.py"></file>
-          <directory name="__pycache__">
-            <file name="0001_initial.cpython-34.pyc"></file>
-            <file name="0002_auto_20160912_0616.cpython-34.pyc"></file>
-            <file name="__init__.cpython-34.pyc"></file>
-          </directory>
-        </directory>
-        <file name="models.py"></file>
-        <directory name="__pycache__">
-          <file name="admin.cpython-34.pyc"></file>
-          <file name="apps.cpython-34.pyc"></file>
-          <file name="__init__.cpython-34.pyc"></file>
-          <file name="models.cpython-34.pyc"></file>
-          <file name="urls.cpython-34.pyc"></file>
-          <file name="views.cpython-34.pyc"></file>
-        </directory>
-        <directory name="templates">
-          <directory name="contact">
-            <file name="detail.html"></file>
-            <file name="index.html"></file>
-          </directory>
-        </directory>
-        <file name="tests.py"></file>
-        <file name="urls.py"></file>
-        <file name="views.py"></file>
-      </directory>
-      <file name="db.sqlite3"></file>
-      <file name="launch_service.sh"></file>
-      <directory name="locale">
-        <directory name="en">
-          <directory name="LC_MESSAGES">
-            <file name="django.mo"></file>
-            <file name="django.po"></file>
-          </directory>
-        </directory>
-        <directory name="zh">
-          <directory name="LC_MESSAGES">
-            <file name="django.mo"></file>
-            <file name="django.po"></file>
-          </directory>
-        </directory>
-      </directory>
-      <file name="manage.py"></file>
-      <directory name="TASISS">
-        <file name="__init__.py"></file>
-        <directory name="__pycache__">
-          <file name="__init__.cpython-34.pyc"></file>
-          <file name="settings.cpython-34.pyc"></file>
-          <file name="urls.cpython-34.pyc"></file>
-          <file name="wsgi.cpython-34.pyc"></file>
-        </directory>
-        <file name="settings.py"></file>
-        <file name="urls.py"></file>
-        <file name="wsgi.py"></file>
-      </directory>
-      <directory name="wxmanager">
-        <file name="admin.py"></file>
-        <file name="apps.py"></file>
-        <file name="__init__.py"></file>
-        <directory name="migrations">
-          <file name="0001_initial.py"></file>
-          <file name="0002_auto_20160912_1712.py"></file>
-          <file name="__init__.py"></file>
-          <directory name="__pycache__">
-            <file name="0001_initial.cpython-34.pyc"></file>
-            <file name="0002_auto_20160912_1712.cpython-34.pyc"></file>
-            <file name="__init__.cpython-34.pyc"></file>
-          </directory>
-        </directory>
-        <file name="models.py"></file>
-        <file name="ob_reserve.py"></file>
-        <directory name="__pycache__">
-          <file name="admin.cpython-34.pyc"></file>
-          <file name="apps.cpython-34.pyc"></file>
-          <file name="__init__.cpython-34.pyc"></file>
-          <file name="models.cpython-34.pyc"></file>
-          <file name="ob_reserve.cpython-34.pyc"></file>
-          <file name="urls.cpython-34.pyc"></file>
-          <file name="views.cpython-34.pyc"></file>
-          <file name="wxapp.cpython-34.pyc"></file>
-        </directory>
-        <directory name="templates">
-          <directory name="wxmanager">
-            <file name="checkin.html"></file>
-            <file name="selectopening.html"></file>
-          </directory>
-        </directory>
-        <file name="tests.py"></file>
-        <file name="urls.py"></file>
-        <file name="views.py"></file>
-        <file name="wxapp.py"></file>
-      </directory>
-    </directory>
-  </directory>
-</tree>
-</myxml>
+# Help
+## Start service
+Open up a terminal and execute
+```shell
+python3 manage.py runserver
+```
+
+This service is currently hosted at ```127.0.0.1:8000``` with no index, so directly accessing ```/``` will result in HttpError.
+
+## Observatory opening reservation and checking-in
+### Creating a observatory opening event
+Currently only admin could create new opening. Permission of user creating new opening event is under development.
+
+### Reservation Checking-in
+#### Web Portal
+Visit ```checkin/``` on your browser and a list of currently stored opening event will be displayed. Click on the one you want to check people in. (Currently no login is required, but it will be complimentary soon.)
+
+Then a text-input field and a button are displayed in the new webpage. Enter the ```openid``` (the message received by user from our WeChat platform) and press button to authenticate. A list of results will be returned in the field of ```error_message```. (Well, I am too lazy to make a separate gui for it. Leave it to department of propoganda.)
+
+Return Message | Technical Explaination | Interpretation
+---|---|---
+Successful_checkin	|	All authentication passed										|	User is granted to enter obsservatory.
+Not_registered			|	```open_id``` cannot be found in database		|	User is a code that is not issued by TAS.
+Repeated_checkin		|	```signed``` is not 0												|	User has used the code more than once.
+Malformed_post			|	```POST``` package is malformed							| Possible program bug. Please contact the developer.
+
+#### Mobile platform
+* Android: Under development
+* Other platform: NOT SPECIAL SUPPORT WILL BE OFFERED
+
