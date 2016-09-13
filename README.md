@@ -10,6 +10,12 @@ Tsinghua Astronomy Society Internal Service System
 * Weekly-meeting checking-in ```(planned)```
 
 # Help
+## Dependency
+* Python 3 (Python 2 will NOT be supported)
+* pycrypt (available at pip)
+* wechat (available at pip)
+* django 1.10 (available at pip)
+
 ## Start service
 Open up a terminal and execute
 ```shell
@@ -37,5 +43,5 @@ Malformed_post			|	```POST``` package is malformed							| Possible program bug.
 
 #### Mobile platform
 * Android: Under development
-* Other platform: NOT SPECIAL SUPPORT WILL BE OFFERED
+* Other platform: NO SPECIAL SUPPORT WILL BE OFFERED
 
