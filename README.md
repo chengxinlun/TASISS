@@ -109,9 +109,5 @@ Tsinghua Astronomy Society Internal Service System
       </directory>
     </directory>
   </directory>
-  <report>
-    <directories>20</directories>
-    <files>62</files>
-  </report>
 </tree>
 </myxml>
