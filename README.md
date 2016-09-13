@@ -24,6 +24,11 @@ python3 manage.py runserver
 
 This service is currently hosted at ```127.0.0.1:8000``` with no index, so directly accessing ```/``` will result in HttpError.
 
+## Admin account
+Username: ```admin```
+Password: ```chengxinlun```
+Usable while still in development phase.
+
 ## Observatory opening reservation and checking-in
 ### Creating a observatory opening event
 Currently only admin could create new opening. Permission of user creating new opening event is under development.
@@ -45,3 +50,5 @@ Malformed_post			|	```POST``` package is malformed							| Possible program bug.
 * Android: Under development
 * Other platform: NO SPECIAL SUPPORT WILL BE OFFERED
 
+## Contact
+Visit ```contact/``` on your browser and a list of currently available contact will show up with hyper-link to each individual's profile. The profiles can only be altered by admin
