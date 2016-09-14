@@ -3,6 +3,7 @@ Tsinghua Astronomy Society Internal Service System
 
 # Purpose and Aim
 * WeChat official platform auto response
+* Additional user login and logout
 * Observatory opening reservation through WeChat official plarform API ```(under dev)```
 * Observatory reservation checking-in ```(web portal completed, mobile plantform under dev)```
 * Database including basic information about every member in TAS ```(under dev)```
@@ -35,7 +36,10 @@ Currently only admin could create new opening. Permission of user creating new o
 
 ### Reservation Checking-in
 #### Web Portal
-Visit ```checkin/``` on your browser and a list of currently stored opening event will be displayed. Click on the one you want to check people in. (Currently no login is required, but it will be complimentary soon.)
+Visit ```checkin/``` on your browser and a list of currently stored opening event will be displayed. Click on the one you want to check people in. Login is required to do any of the step. A user (observatory admin) has been created for this functionality (if not please add it using admin):
+
+Username: ```obcheckin```
+Passowrd: ```observatory```
 
 Then a text-input field and a button are displayed in the new webpage. Enter the ```openid``` (the message received by user from our WeChat platform) and press button to authenticate. A list of results will be returned in the field of ```error_message```. (Well, I am too lazy to make a separate gui for it. Leave it to department of propoganda.)
 
@@ -51,4 +55,21 @@ Malformed_post			|	```POST``` package is malformed							| Possible program bug.
 * Other platform: NO SPECIAL SUPPORT WILL BE OFFERED
 
 ## Contact
-Visit ```contact/``` on your browser and a list of currently available contact will show up with hyper-link to each individual's profile. The profiles can only be altered by admin
+Visit ```contact/``` on your browser and a list of currently available contact will show up with hyper-link to each individual's profile. A user (contact admin) and a UI is under development.
+
+# Developer Guide
+## User login and logout
+For any <a href="https://docs.djangoproject.com/en/1.10/topics/http/views/">django view</a> that needs a user login in order to continue, please add the annotation
+```python
+@login_required()
+````
+before the function.
+
+Hyperlink to <a href="https://docs.djangoproject.com/en/1.10/topics/http/urls/#naming-url-patterns">named url</a>
+```python
+userauth:logout
+```
+will logout current user on click.
+
+
+
