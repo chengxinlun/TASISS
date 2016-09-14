@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .wxapp import WxApp
-from .models import Ob_opening, Register
+from .models import Ob_opening
 
 # Create your views here.
 
@@ -14,21 +14,21 @@ def wechat(request):
     return HttpResponse(result)
 
 
-# @login_required()
+@login_required()
 def selectopening(request):
     opening_all = Ob_opening.objects.all()
     context = {'opening_list': opening_all}
     return render(request, 'wxmanager/selectopening.html', context)
 
 
-# @login_required()
+@login_required()
 def checkin(request, opening_id):
     opening = get_object_or_404(Ob_opening, pk=opening_id)
     context = {"opening": opening}
     return render(request, 'wxmanager/checkin.html', context)
 
 
-# @login_required()
+@login_required()
 def check(request, opening_id):
     opening = get_object_or_404(Ob_opening, pk=opening_id)
     try:

@@ -2,6 +2,8 @@
 
 <form action="{% url 'wxmanager:check' opening.id %}" method="post">
 {% csrf_token %}
-<input type="text" name="openid" />
-<input type="submit" value="Check In!" />
+<table>
+	<tr><td><input type="text" name="openid" /></td></tr>
+	<tr><td><input type="submit" value="Check In!" /></td></tr>
+	<tr><td><a href="{%url 'userauth:logout' %}">Logout</a>
 </form>

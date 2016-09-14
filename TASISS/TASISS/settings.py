@@ -23,6 +23,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = ''
 
 
+# Login and logout
+LOGIN_URL = 'userauth:login'
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -40,6 +44,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'contact.apps.ContactConfig',
     'wxmanager.apps.WxmanagerConfig',
+    'userauth.apps.UserauthConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -64,7 +69,7 @@ ROOT_URLCONF = 'TASISS.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
