@@ -12,8 +12,8 @@ from .models import Ob_opening
 @csrf_exempt
 def wechat(request):
     app = WxApp()
-    print(request.GET)
-    result = app.process(request.POST, request.body)
+    print(request.body)
+    result = app.process(request.GET, request.body)
     return HttpResponse(result)
 
 

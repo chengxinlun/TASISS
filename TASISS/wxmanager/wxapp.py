@@ -12,7 +12,6 @@ class WxApp(off.WxApplication):
     WELCOME_TXT = u'你好！感谢您的关注！'
 
     def on_text(self, req):
-        print(req.context)
         '''
         if req.content == u'ob':
             print('received ob')
@@ -21,7 +20,7 @@ class WxApp(off.WxApplication):
         else:
             return off.WxTextResponse(self.UNSUPPORT_TXT, req)
         '''
-        return off.WxTextResponse(req.context, req)
+        return off.WxTextResponse(req.Content, req)
 
 
 '''
