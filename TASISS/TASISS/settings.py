@@ -26,6 +26,9 @@ MEDIA_URL = ''
 # Login and logout
 LOGIN_URL = 'userauth:login'
 
+# Security
+# Activate this part during production
+# SECURE_SSL_REDIRECT = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
