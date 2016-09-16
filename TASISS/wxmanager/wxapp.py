@@ -8,24 +8,12 @@ class WxApp(off.WxApplication):
     WECHAT_APPID = 'wx958984c33a0f4d2b'
     WECHAT_APPSECRET = '2bdb1b2766ca818ebf8538e3d104af90'
     ENCODING_AES_KEY = None
-    UNSUPPORT_TXT = u'暂不支持此类型消息'
-    WELCOME_TXT = u'你好！感谢您的关注！'
+    UNSUPPORT_TXT = u'您的消息已收到，转为人工服务'
+    WELCOME_TXT = u'欢迎参加测试'
 
     def on_text(self, req):
-        '''
-        if req.content == u'ob':
-            print('received ob')
+        if req.Content == u'天文台预约':
             result = ob_reserve(req)
             return result
         else:
             return off.WxTextResponse(self.UNSUPPORT_TXT, req)
-        '''
-        return off.WxTextResponse(req.Content, req)
-
-
-'''
-class WxApp:
-    def process(self, a, b):
-        req = {"CreateTime": "1474156800", "FromUserName": "00000000001"}
-        print(ob_reserve(req))
-'''

@@ -43,17 +43,12 @@ def reserve(opening, openid):
 def ob_reserve(req):
     timestamp = req.CreateTime
     openid = req.FromUserName
-    # timestamp = req["CreateTime"]
-    # openid = req["FromUserName"]
     inputtime = stamp2date(timestamp)
     opening = get_opening(inputtime)
     if opening is None:
-        # return "not time"
-        return off.WxTestResponse(u"抱歉，现在不是预约时间", req)
+        return off.WxTextResponse(u"抱歉，现在不是预约时间", req)
     else:
         if (reserve(opening, openid)):
-            # return "success"
-            return off.WxTestResponse(str(openid), req)
+            return off.WxTextResponse(str(openid), req)
         else:
-            # return "full"
-            return off.WxTestResponse(u"预约名额已满或您在重复预约", req)
+            return off.WxTextResponse(u"预约名额已满或您在重复预约", req)
