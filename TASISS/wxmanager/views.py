@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from .wxapp import WxApp
 from .models import Ob_opening
 
@@ -8,9 +9,11 @@ from .models import Ob_opening
 
 
 # Wechat request handler
+@csrf_exempt
 def wechat(request):
     app = WxApp()
-    result = app.process(request.GET, request.body)
+    print(request.GET)
+    result = app.process(request.POST, request.body)
     return HttpResponse(result)
 
 
