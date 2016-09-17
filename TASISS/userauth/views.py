@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def user_login(request):
-    next_page = request.GET['next']
+    next_page = request.GET.get('next', '/contact/')
     context = {'next': next_page}
     return render(request, 'userauth/dologin.html', context)
 

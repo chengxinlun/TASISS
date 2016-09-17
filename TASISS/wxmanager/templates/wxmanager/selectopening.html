@@ -2,9 +2,11 @@
     {% for each in opening_list %}
 		<table>
 			<tr><td><a href="{% url 'wxmanager:checkin' each.id %}">{{ each.name }}</a></td></tr>
-			<tr><td>{{ each.starttime }}</td><td>{{ each.endtime }}</td></tr>
+			<tr><td>Reservation Start Time:</td><td>{{ each.starttime }}</td></tr>
+			<tr><td>Reservation End Time:</td><td>{{ each.endtime }}</td></tr>
 		</table>
     {% endfor %}
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+<a href="{%url 'userauth:logout' %}">Logout</a>
