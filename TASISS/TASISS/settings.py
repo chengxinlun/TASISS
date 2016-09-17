@@ -39,7 +39,7 @@ CSRF_COOKIE_SECURE = False
 SECRET_KEY = '7j-@xjnt%9#@i%sh_dc)*=f$ex7xy3^ar1%1%g3+4)%@264k4l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '45.33.62.211']

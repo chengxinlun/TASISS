@@ -1,7 +1,11 @@
 import datetime
+import io
+import PIL
 import pytz
+import qrcode
 from .models import Ob_opening
 import wechat.official as off
+from wechat.models import WxImage
 
 
 def stamp2date(timestamp):
@@ -30,17 +34,17 @@ def check_repeat(opening, openid):
 def reserve(opening, openid):
     if opening.max_num - opening.register_set.count() > 0:
         if check_repeat(opening, openid):
-            return False
+            return [False, None]
         # This is the part where a license number will be generated
         name = str(openid)
         # The simpler the better
         opening.register_set.create(openid=name, signed=0)
-        return True
+        return [True, name]
     else:
-        return False
+        return [False, name]
 
 
-def ob_reserve(req):
+def ob_reserve(req, Api):
     timestamp = req.CreateTime
     openid = req.FromUserName
     inputtime = stamp2date(timestamp)
@@ -48,7 +52,17 @@ def ob_reserve(req):
     if opening is None:
         return off.WxTextResponse(u"抱歉，现在不是预约时间", req)
     else:
-        if (reserve(opening, openid)):
-            return off.WxTextResponse(str(openid), req)
+        return_res = reserve(opening, openid)
+        if return_res[0]:
+            img = qrcode.make(return_res[1])
+            imgba = io.BytesIO()
+            img.save(imgba, format='JPEG')
+            imgba = imgba.getvalue()
+            imginfo = {"media_content": imgba}
+            media_id = Api._get_media_id(imginfo, 'media', 'image')
+            if media_id is None:
+                return off.WxTextResponse(return_res[1], req)
+            else:
+                return off.WxImageResponse(WxImage(MediaId=media_id), req)
         else:
             return off.WxTextResponse(u"预约名额已满或您在重复预约", req)

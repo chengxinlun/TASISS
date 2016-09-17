@@ -11,9 +11,11 @@ class WxApp(off.WxApplication):
     UNSUPPORT_TXT = u'您的消息已收到，转为人工服务'
     WELCOME_TXT = u'欢迎参加测试'
 
+    Api = off.WxApi(WECHAT_APPID, WECHAT_APPSECRET)
+
     def on_text(self, req):
         if req.Content == u'天文台预约':
-            result = ob_reserve(req)
+            result = ob_reserve(req, self.Api)
             return result
         else:
             return off.WxTextResponse(self.UNSUPPORT_TXT, req)
