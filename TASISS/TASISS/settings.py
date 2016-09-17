@@ -28,7 +28,9 @@ LOGIN_URL = 'userauth:login'
 
 # Security
 # Activate this part during production
-# SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -37,9 +39,10 @@ LOGIN_URL = 'userauth:login'
 SECRET_KEY = '7j-@xjnt%9#@i%sh_dc)*=f$ex7xy3^ar1%1%g3+4)%@264k4l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '45.33.62.211']
 
 
 # Application definition
