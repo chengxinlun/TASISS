@@ -22,7 +22,7 @@ class Ob_opening(models.Model):
             raise ValidationError('Reservation end time must be earlier than checkin start time')
         if self.startcheckin > self.endcheckin:
             raise ValidationError('Checkin start time must be earlier than end time')
-        
+
 
 class Register(models.Model):
     ob_opening = models.ForeignKey(Ob_opening, on_delete=models.CASCADE)
