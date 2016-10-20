@@ -5,39 +5,35 @@ import wechat.official as off
 
 
 def stamp2date(timestamp):
-    return datetime.datetime.fromtimestamp(int(timestamp)
-                                           ).replace(tzinfo=pytz.UTC)
+    return datetime.datetime.fromtimestamp(int(timestamp)).replace(tzinfo=pytz.UTC)
 
 
 def get_opening(inputtime):
-    opening_list = Ob_opening.objects.all()
-    for each in opening_list:
-        start_time = each.starttime
-        end_time = each.endtime
-        if inputtime < end_time and inputtime > start_time:
-            return each
-    return None
+    return Ob_opening.objects.filter(starttime__lt=inputtime, endtime__gt=inputtime).first()
 
 
 def check_repeat(opening, openid):
-    existing = opening.register_set.all()
-    for each in existing:
-        if each.openid == openid:
-            return True
-    return False
+    existing = opening.register_set.filter(openid=openid).first()
+    if existing is None:
+        return False
+    else:
+        return True
 
 
-def reserve(opening, openid):
+def reserve(opening, openid, inputtime):
     if opening.max_num - opening.register_set.count() > 0:
         if check_repeat(opening, openid):
-            return False
+            return u"您在重复预约"
         # This is the part where a license number will be generated
         name = str(openid)
         # The simpler the better
         opening.register_set.create(openid=name, signed=0)
-        return True
+        reservetime = inputtime.astimezone(pytz.timezone("Asia/Shanghai")).strftime("%Y-%m-%d %H:%M:%S")
+        startcheckin = opening.startcheckin.astimezone(pytz.timezone("Asia/Shanghai")).strftime("%Y-%m-%d %H:%M:%S")
+        endcheckin = opening.endcheckin.astimezone(pytz.timezone("Asia/Shanghai")).strftime("%Y-%m-%d %H:%M:%S")
+        return u"您于"+ reservetime + "预约天文台参观，请您于" + startcheckin + "至" + endcheckin +"到达天文台。参观前工作人员会要求您发送验证信息至本公众号，以便确认您的预约。"
     else:
-        return False
+        return u"预约名额已满"
 
 
 def ob_reserve(req):
@@ -48,7 +44,5 @@ def ob_reserve(req):
     if opening is None:
         return off.WxTextResponse(u"抱歉，现在不是预约时间", req)
     else:
-        if (reserve(opening, openid)):
-            return off.WxTextResponse(str(openid), req)
-        else:
-            return off.WxTextResponse(u"预约名额已满或您在重复预约", req)
+        response_text = reserve(opening, openid, inputtime)
+        return off.WxTextResponse(response_text, req)

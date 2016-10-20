@@ -1,5 +1,6 @@
 import wechat.official as off
 from .ob_reserve import ob_reserve
+from .ob_checkin import ob_checkin
 
 
 class WxApp(off.WxApplication):
@@ -14,6 +15,9 @@ class WxApp(off.WxApplication):
     def on_text(self, req):
         if req.Content == u'天文台预约':
             result = ob_reserve(req)
+            return result
+        elif req.Content == u'天文台签到':
+            result = ob_checkin(req)
             return result
         else:
             return off.WxTextResponse(self.UNSUPPORT_TXT, req)
