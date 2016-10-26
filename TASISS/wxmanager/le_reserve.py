@@ -31,7 +31,7 @@ def reserve(opening, openid, inputtime):
         reservetime = inputtime.astimezone(pytz.timezone("Asia/Shanghai")).strftime("%Y-%m-%d %H:%M:%S")
         startcheckin = opening.startcheckin.astimezone(pytz.timezone("Asia/Shanghai")).strftime("%Y-%m-%d %H:%M:%S")
         endcheckin = opening.endcheckin.astimezone(pytz.timezone("Asia/Shanghai")).strftime("%Y-%m-%d %H:%M:%S")
-        return u"您于"+ reservetime + "预约讲座，请您于" + startcheckin + "至" + endcheckin +"到达讲座地点。参观前工作人员会要求您发送验证信息至本公众号，以便确认您的预约。"
+        return u"您于"+ reservetime + "预约讲座，请您于" + startcheckin + "至" + endcheckin +"到达讲座地点。入场时工作人员会要求您发送验证信息至本公众号，以便确认您的预约。"
     else:
         return u"预约名额已满"
 
