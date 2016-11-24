@@ -3,6 +3,7 @@ from .ob_reserve import ob_reserve
 from .ob_checkin import ob_checkin
 from .le_reserve import le_reserve
 from .le_checkin import le_checkin
+from .q_and_a import q_and_a
 
 
 class WxApp(off.WxApplication):
@@ -23,6 +24,8 @@ class WxApp(off.WxApplication):
             result = le_reserve(req)
         elif req.Content == u'讲座签到':
             result = le_checkin(req)
+        elif req.content == u'天文夜答题':
+            result = q_and_a(req)
         else:
             result = off.WxEmptyResponse(req)
         return result
