@@ -10,11 +10,11 @@ def stamp2date(timestamp):
 def q_and_a(req):
     timestamp = req.CreateTime
     inputtime = stamp2date(timestamp)
-    text = "欢迎来到天文夜！您需要完成的答题环节在以下连接中，" + \
+    text = u"欢迎来到天文夜！您需要完成的答题环节在以下连接中，" + \
         "请根据参与的项目完成相应的题目。完成后将获得相应奖励。" + \
-        "&lt;a href=&quot;https://ks.sojump.hk/jq/10881815.aspx&quot;&gt;" + \
-        "ETX125&lt;/a&gt; " + \
-        "&lt;a href=&quot;https://ks.sojump.hk/jq/10881870.aspx&quot;&gt;" + \
+        '<a href="https://ks.sojump.hk/jq/10881815.aspx">' + \
+        "ETX125</a>" + \
+        '<a href="https://ks.sojump.hk/jq/10881870.aspx">' + \
         "Meadal130&lt;/a&gt; " + \
         "&lt;a href=&quot;https://ks.sojump.hk/jq/10880154.aspx&quot;&gt;" + \
         "EQ3D&lt;/a&gt; " + \
