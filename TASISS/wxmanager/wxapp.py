@@ -24,7 +24,7 @@ class WxApp(off.WxApplication):
             result = le_reserve(req)
         elif req.Content == u'讲座签到':
             result = le_checkin(req)
-        elif req.content == u'天文夜答题':
+        elif req.Content == u'天文夜答题':
             result = q_and_a(req)
         else:
             result = off.WxEmptyResponse(req)
