@@ -13,7 +13,8 @@ class WxApp(off.WxApplication):
     WECHAT_APPSECRET = '9b17411116a08143a177537a0c851646'
     ENCODING_AES_KEY = None
     UNSUPPORT_TXT = u'您的消息已收到，转为人工服务'
-    WELCOME_TXT = u'欢迎参加测试'
+    WELCOME_TXT = u'欢迎关注清华天协微信公众号。Thank you for subsribing to' + \
+        ' the official plaform of Tsinghua Astronomy Society on Wechat.'
 
     def on_text(self, req):
         if req.Content == u'天文台预约':
